@@ -25,4 +25,5 @@ urlpatterns = [
     path('', include('DjangoWebLearning_log.learning_logs.urls', namespace='learning_logs')),
     path('admin/', admin.site.urls),
     #path('Admin/', admin.site.urls),
+    path('users/', include('DjangoWebLearning_log.users.urls', namespace='users')),
 ]

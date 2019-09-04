@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Moje aplikacje
 	'DjangoWebLearning_log.learning_logs',
+    'DjangoWebLearning_log.users',
 ]
 
 # Middleware framework

@@ -43,6 +43,16 @@
     </Compile>
     <Compile Include="DjangoWebLearning_log\learning_logs\views.py" />
     <Compile Include="DjangoWebLearning_log\learning_logs\__init__.py" />
+    <Compile Include="DjangoWebLearning_log\users\admin.py" />
+    <Compile Include="DjangoWebLearning_log\users\apps.py" />
+    <Compile Include="DjangoWebLearning_log\users\migrations\__init__.py" />
+    <Compile Include="DjangoWebLearning_log\users\models.py" />
+    <Compile Include="DjangoWebLearning_log\users\tests.py" />
+    <Compile Include="DjangoWebLearning_log\users\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DjangoWebLearning_log\users\views.py" />
+    <Compile Include="DjangoWebLearning_log\users\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="DjangoWebLearning_log\__init__.py" />
     <Compile Include="DjangoWebLearning_log\settings.py" />
@@ -60,6 +70,9 @@
     <Content Include="DjangoWebLearning_log\learning_logs\templates\learning_logs\new_topic.html" />
     <Content Include="DjangoWebLearning_log\learning_logs\templates\learning_logs\topic.html" />
     <Content Include="DjangoWebLearning_log\learning_logs\templates\learning_logs\topics.html" />
+    <Content Include="DjangoWebLearning_log\users\templates\users\index.html" />
+    <Content Include="DjangoWebLearning_log\users\templates\users\login.html" />
+    <Content Include="DjangoWebLearning_log\users\templates\users\register.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +81,10 @@
     <Folder Include="DjangoWebLearning_log\learning_logs\migrations\" />
     <Folder Include="DjangoWebLearning_log\learning_logs\templates\" />
     <Folder Include="DjangoWebLearning_log\learning_logs\templates\learning_logs\" />
+    <Folder Include="DjangoWebLearning_log\users\" />
+    <Folder Include="DjangoWebLearning_log\users\migrations\" />
+    <Folder Include="DjangoWebLearning_log\users\templates\" />
+    <Folder Include="DjangoWebLearning_log\users\templates\users\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="ll_learning\">
