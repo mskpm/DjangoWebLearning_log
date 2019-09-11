@@ -15,7 +15,6 @@ from .forms import TopicForm, EntryForm
 
 def index(request):
     #return HttpResponse("Hello, world. You're at the learning log.")
- 
     return render(request, 'learning_logs/index.html')
 
 @login_required

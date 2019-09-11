@@ -1,44 +1,45 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
 <body>
-    {% extends 'learning_logs/base.html' %}
 
-    {% block content %}
+  {% extends 'learning_logs/base.html' %}
 
-    <p>Temat: {{ topic }}</p>
+  {% block header %}
+    <h2>{{ topic }}</h2>
+  {% endblock header %}
 
-    <p>Wpisy:</p>
-
-      <p>
-        <a href="{% url 'learning_logs:new_entry' topic.id %}">Dodaj nowy wpis.</a>
+  {% block content %}
+    <p>
+      <a href="{% url 'learning_logs:new_entry' topic.id %}">Dodaj nowy wpis</a>
     </p>
+    
+    {% for entry in entries %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>
+            {{ entry.date_added|date:'d M Y H:i' }}
+            <small>
+              <a href="{% url 'learning_logs:edit_entry' entry.id %}">
+              Edytuj wpis</a>
+              <a href="{% url 'learning_logs:del_entry' entry.id %}">
+              Skasuj wpis</a>
+            </small>
+          </h3>
+        </div>
+        <div class="panel-body">
+          {{ entry.text|linebreaks }}
+        </div>
+      </div><!-- panel -->
+      {% empty %}
+        Nie ma jeszcze żadnego wpisu dla tego tematu.
+      {% endfor %}
 
-    <ul>
-        {% for entry in entries %}
-            <li>
-                <p>
-                    {{ entry.date_added|date:'d M Y H:i' }}
-                </p>
-                <p>
-                    {{ entry.text|linebreaks }}
-                </p>
-                <p>
-                    <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edytuj wpis</a>
-                    <a href="{% url 'learning_logs:del_entry' entry.id %}">Skasuj wpis</a>
-                </p>
-            </li>
-        {% empty %}
-            <li>
-                Nie ma jeszcse żadnego wpisu.
-            </li>
-        {% endfor %}
-    </ul>
+  {% endblock content %}
 
-    {% endblock content %}
 </body>
 </html>

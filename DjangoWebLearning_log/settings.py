@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Aplikacje inncych firm
+    'bootstrap3',
     #Moje aplikacje
 	'DjangoWebLearning_log.learning_logs',
     'DjangoWebLearning_log.users',
@@ -117,3 +119,31 @@ STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
 # Moje ustawienia
 LOGIN_URL = '/users/login'
+
+# Ustawienia dla django-bootstrap3
+BOOTSTRAP3 = {
+    'include_jquery':True,
+    }
+# Ustawienia Heroku
+if os.getcwd() == '/app':
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+        }
+    # Honorowanie nagłówka 'X-Forwarded-Proto' dla request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Zezwolenie na wszystkie nagłówki hosta
+    ALLOWED_HOSTS = ['*']
+
+    # Konfiguracja zasobów statycznych
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static')
+    )
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+        ]
+

@@ -6,21 +6,26 @@
     <title></title>
 </head>
 <body>
-    {% extends "learning_logs/base.html" %}
-    {% block content %}
+  {% extends "learning_logs/base.html" %}
+  {% load bootstrap3 %}
 
-    {% if form.errors %}
-    <p>Nazwa użytkownika i hasło są niepoprawne. Proszę spróbowac ponownie.</p>
-    {% endif %}
+  {% block header %}
+    <h2>Zaloguj się do konta</h2>
+  {% endblock header %}
 
-    <form method="post" action="{% url 'users:login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
+  {% block content %}
+    
+    <form method="post" action="{% url 'users:login' %}" class="form">
+      {% csrf_token %}
+      {% bootstrap_form form %}
 
-    <button name="submit">Zaloguj</button>
-    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+      {% buttons %}
+        <button name="submit" class="btn btn-primary">Zaloguj</button>
+      {% endbuttons %}
+
+      <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
     </form>
+  {% endblock content %}
 
-    {% endblock content %}
 </body>
 </html>

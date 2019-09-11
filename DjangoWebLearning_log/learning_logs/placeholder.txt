@@ -1,0 +1,2 @@
+Istnienie tego pliku gwarantuje, ¿e katalog DjangoWebLearning_logs/static bêdzie dodany do projektu.
+Django zbierze pliki statyczne, a nastêpnie umieœci je w katalof=gu DjangoWebLearning_logs/static/.
