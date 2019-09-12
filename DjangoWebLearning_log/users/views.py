@@ -23,7 +23,7 @@ def register(request):
         # Zalogowanie użytkownika, a następnie przekierowanie go na stronę główną
         authenticated_user = authenticate(username = new_user.username,
             password = request.POST['password1'])
-        login(request, autenticated_user)
+        login(request, authenticated_user)
         return HttpResponseRedirect(reverse('lerning_logs:index'))
     context = {'form': form}
     return render(request, 'users/register.html', context)
